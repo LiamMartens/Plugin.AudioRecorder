@@ -15,12 +15,16 @@ namespace Plugin.AudioRecorder
 
 		WaveRecorder recorder;
 
-		IAudioStream audioStream;
-
 		bool audioDetected;
 		DateTime? silenceTime;
 		DateTime? startTime;
 		TaskCompletionSource<string> recordTask;
+
+		/// <summary>
+		/// Underlying audioStream
+		/// Making this public to be able to directly tap into the bytes array
+		/// </summary>
+		public IAudioStream audioStream;
 
 		/// <summary>
 		/// Gets the details of the underlying audio stream.
